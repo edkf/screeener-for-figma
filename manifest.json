@@ -1,0 +1,7 @@
+{
+  "name": "Screeener for Figma",
+  "id": "837803031368727862",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html"
+}

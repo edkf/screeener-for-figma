@@ -1,0 +1,12 @@
+<h2>Screeener for Figma</h2>
+<button id="create">Create</button>
+
+<script>
+
+document.getElementById('create').onclick = () => {
+  const textbox = document.getElementById('count')
+  const count = parseInt(textbox.value, 10)
+  parent.postMessage({ pluginMessage: { type: 'create-artboards' } }, '*')
+}
+
+</script>
