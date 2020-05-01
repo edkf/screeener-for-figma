@@ -15,12 +15,14 @@ function groupArr(data, n) {
 }
 figma.ui.onmessage = msg => {
     if (msg.type === 'generate-slides') {
+        // 1 PHONE MOCKUP
         if (msg.checkedval === 'phone') {
             const selection = figma.currentPage.selection;
             const nodes = [];
             selection.forEach((element, index) => {
                 // SLIDE PROPRERTIES
                 const slide = figma.createFrame();
+                slide.name = 'slide ' + index;
                 slide.x = (1920 + 200) * index;
                 slide.y = element.y + 1500;
                 slide.resize(1920, 1080);
@@ -60,8 +62,9 @@ figma.ui.onmessage = msg => {
                 });
             });
             figma.viewport.scrollAndZoomIntoView(nodes);
-            // figma.closePlugin()
+            figma.closePlugin();
         }
+        // 3 PHONES MOCKUP
         if (msg.checkedval === '3phones') {
             const selection = figma.currentPage.selection;
             const nodes = [];
@@ -69,7 +72,9 @@ figma.ui.onmessage = msg => {
             groupedFrames.forEach((element, index) => {
                 const slide = figma.createFrame();
                 const fills = clone(slide.fills);
+                slide.name = 'slide ' + index;
                 slide.x = (1920 + 200) * index;
+                slide.y = element[0].y + 1500;
                 slide.resize(1920, 1080);
                 const mockupImg = figma.createImage(msg.mockup).hash;
                 fills[0] = {
@@ -77,14 +82,38 @@ figma.ui.onmessage = msg => {
                     imageHash: mockupImg,
                     scaleMode: 'FILL'
                 };
+                element.forEach((frame, i) => {
+                    const mockup = figma.createRectangle();
+                    mockup.x = 205 + (568 * i);
+                    mockup.y = 206;
+                    mockup.resize(375, 667);
+                    const mockupFills = clone(slide.fills);
+                    slide.appendChild(mockup);
+                    // EXPORTING SELECTION
+                    const exportedImage = frame.exportAsync({
+                        format: 'PNG',
+                        constraint: {
+                            type: 'SCALE',
+                            value: 2
+                        }
+                    });
+                    exportedImage
+                        .then(result => {
+                        const img = figma.createImage(result);
+                        mockupFills[0] = {
+                            type: 'IMAGE',
+                            imageHash: img.hash,
+                            scaleMode: 'FILL'
+                        };
+                        mockup.fills = mockupFills;
+                    });
+                });
                 figma.currentPage.appendChild(slide);
                 slide.fills = fills;
                 nodes.push(slide);
-                figma.currentPage.appendChild(slide);
-                // slide.fills = fills
-                // nodes.push(slide)
             });
-            // figma.closePlugin()
+            figma.viewport.scrollAndZoomIntoView(nodes);
+            figma.closePlugin();
         }
     }
     // Make sure to close the plugin when you're done. Otherwise the plugin will
