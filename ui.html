@@ -1,25 +1,112 @@
 <style>
 
-  html {
-    width: 300px;
-    height: 600px;
-  }
+  *, *:before, *:after {
+      -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+              box-sizing: border-box;
+    }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #989898;
+    color: #000;
     margin: 0;
     padding: 0;
+    margin-top: 20px;
+    font-size: 14px;
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  .content {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .control-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .control-data {
+    margin: 15px 0 30px 0;
+  }
+  
+  input {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  input:focus ~ .control-image{
+    box-shadow: 0px 0px 0px 3px #12A0FE;
+  }
+
+  .control-data-title {
+    margin-bottom: 5px;
+  }
+
+  .control-data-description {
+    opacity: 0.5;
+  }
+
+  .separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+  }
+
+  .button {
+    font-size: 20px;
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+  }
+
 </style>
 
 <img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" style="display: none;"  crossOrigin="" width="1920px" height="1080px" id="mockup1"  alt="">
 <canvas id="canvas" width="1920px" height="1080px" style="display: none;"></canvas>
 
+<div class="content">
+  <div class="title">Select a mockup below</div>
+  <label class="control radio">
+    <input id="radio1" name="radio" type="radio">
+    <img class="control-image" src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" alt="">
+    <div class="control-data">
+      <div class="control-data-title">Mobile phone</div>
+      <div class="control-data-description">375x667</div>
+    </div>
+  </label>
+</div>
+<div class="separator"></div>
+<div class="content">
+  <label class="control radio">
+    <input id="radio2" name="radio" type="radio">
+    <img class="control-image" src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588299118/Screeener/32.png" alt="">
+    <div class="control-data">
+      <div class="control-data-title">3 mobile phones</div>
+      <div class="control-data-description">375x667</div>
+    </div>
+  </label>
 
-<h2>Select a mockup</h2>
-<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" style="display: none;"  crossOrigin="" width="300px" height="auto" alt="">
-<button id="create">Generate</button>
+  <button class="button" id="create">Generate</button>
+</div>
+
+
 
 <script>
 

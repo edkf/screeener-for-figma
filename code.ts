@@ -1,5 +1,5 @@
 figma.showUI(__html__)
-figma.ui.resize(400, 200)
+figma.ui.resize(400, 755)
 
 function clone(val) {
   return JSON.parse(JSON.stringify(val))
@@ -51,7 +51,6 @@ figma.ui.onmessage = msg => {
       exportedImage
         .then(result => {
           const img = figma.createImage(result)
-          // console.log(img.hash)
           mockupFills[0] = {
             type: 'IMAGE',
             imageHash: img.hash,
@@ -62,22 +61,7 @@ figma.ui.onmessage = msg => {
 
         })
 
-
-      // SCREEN PROPERTIES
-
     })
-
-  }
-
-  if (msg.type === 'debug') {
-    const selection = figma.currentPage.selection
-    
-    for (let index = 0; index < selection.length; index++) {
-      const element = selection[index];
-
-      console.log(element)
-      
-    }
 
   }
 
