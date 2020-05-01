@@ -89,6 +89,8 @@
 </style>
 
 <img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" style="display: none;"  crossOrigin="" width="1920px" height="1080px" id="mockup1"  alt="">
+<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588299118/Screeener/32.png" style="display: none;"  crossOrigin="" width="1920px" height="1080px" id="mockup2"  alt="">
+
 <canvas id="canvas" width="1920px" height="1080px" style="display: none;"></canvas>
 
 <div class="content">
@@ -120,6 +122,7 @@
 
 <script>
 
+  
   async function encode(canvas, ctx, imageData) {
     ctx.putImageData(imageData, 0, 0)
     return await new Promise((resolve, reject) => {
@@ -131,9 +134,8 @@
       })
     })
   }
-
+  
   window.onload = function () {
-    
 
     const controlRadio = Array.from(document.querySelectorAll('.js-control-radio'))
     const button = document.querySelector('button')
@@ -149,33 +151,35 @@
         if (input.checked) {
           checkedval = input.value
           button.disabled = false
-          parent.postMessage({ pluginMessage: { type: 'select-mockup', checkedval}}, '*')
+
+          let mockupImage
+
+          if (input.value === 'phone') {
+            mockupImage = document.getElementById('mockup1')
+            console.log('phone')
+          }
+          
+          if (input.value === '3phones') {
+            console.log('3phone')
+            mockupImage = document.getElementById('mockup2')
+          }
+          
+          const canvas = document.getElementById('canvas')
+          const ctx = canvas.getContext("2d")
+          ctx.drawImage(mockupImage, 0, 0)
+          const imageData = ctx.getImageData(0, 0, 1920, 1080)
+          const newBytes = encode(canvas, ctx, imageData)
+
+          newBytes.then((imageData) => {
+            const mockup = imageData
+            document.getElementById('create').onclick = () => {
+              parent.postMessage({ pluginMessage: { type: 'generate-slides', mockup, checkedval}}, '*')
+            }
+          })
         }
       })
     })
 
-
-    // Mockup1
-    const mockupOne = document.getElementById('mockup1')
-    const canvasM1 = document.getElementById('canvas')
-    const ctxM1 = canvasM1.getContext("2d")
-    
-    ctxM1.drawImage(mockupOne, 0, 0)
-    const imageDataM1 = ctxM1.getImageData(0, 0, 1920, 1080)
-
-    const newBytesM1 = encode(canvasM1, ctxM1, imageDataM1)
-
-    newBytesM1.then((imageData) => {
-
-      const mockupData = {
-        onePhone: imageData
-      }
-
-      document.getElementById('create').onclick = () => {
-        console.log(checkedval)
-        parent.postMessage({ pluginMessage: { type: 'generate-slides', mockupData, checkedval}}, '*')
-      }
-    })
   }
 
 </script>

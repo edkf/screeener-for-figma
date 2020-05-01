@@ -5,12 +5,18 @@ function clone(val) {
   return JSON.parse(JSON.stringify(val))
 }
 
-figma.ui.onmessage = msg => {
-
-  if (msg.type === 'select-modal') {
-    console.log(msg.checkedval)
+function groupArr(data, n) {
+  var group = [];
+  for (var i = 0, j = 0; i < data.length; i++) {
+      if (i >= n && i % n === 0)
+          j++;
+      group[j] = group[j] || [];
+      group[j].push(data[i])
   }
+  return group;
+}
 
+figma.ui.onmessage = msg => {
   
   if (msg.type === 'generate-slides') {
 
@@ -25,7 +31,7 @@ figma.ui.onmessage = msg => {
         slide.y = element.y + 1500
         slide.resize(1920, 1080)
         const fills = clone(slide.fills)
-        const mockupImg = figma.createImage(msg.mockupData.onePhone).hash
+        const mockupImg = figma.createImage(msg.mockup).hash
   
         nodes.push(slide)
         
@@ -67,7 +73,38 @@ figma.ui.onmessage = msg => {
       })
   
       figma.viewport.scrollAndZoomIntoView(nodes)
-      figma.closePlugin()
+      // figma.closePlugin()
+    }
+
+    if (msg.checkedval === '3phones') {
+      const selection = figma.currentPage.selection
+      const nodes: SceneNode[] = []
+
+      const groupedFrames =  groupArr(selection, 3)
+
+      groupedFrames.forEach((element, index) => {
+        const slide = figma.createFrame()
+        const fills = clone(slide.fills)
+        slide.x = (1920 + 200) * index
+        slide.resize(1920, 1080)
+        const mockupImg = figma.createImage(msg.mockup).hash
+        fills[0] = {
+          type: 'IMAGE',
+          imageHash: mockupImg,
+          scaleMode: 'FILL'
+        }
+  
+        figma.currentPage.appendChild(slide)
+        slide.fills = fills
+        
+        nodes.push(slide)
+        figma.currentPage.appendChild(slide)
+        // slide.fills = fills
+  
+        // nodes.push(slide)
+      })
+
+      // figma.closePlugin()
     }
 
   }
