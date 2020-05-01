@@ -48,7 +48,7 @@
     opacity: 0;
   }
 
-  input:focus ~ .control-image{
+  input:checked ~ .control-image{
     box-shadow: 0px 0px 0px 3px #12A0FE;
   }
 
@@ -74,6 +74,16 @@
     background-color: #000;
     color: #fff;
     text-align: center;
+    transition: .3s ease;
+    cursor: pointer;
+  }
+
+  .button:disabled {
+    background-color: rgba(0,0,0,0.3);
+  }
+
+  .button:focus {
+    outline: none;
   }
 
 </style>
@@ -83,8 +93,8 @@
 
 <div class="content">
   <div class="title">Select a mockup below</div>
-  <label class="control radio">
-    <input id="radio1" name="radio" type="radio">
+  <label class="control radio js-control-radio">
+    <input id="radio1" name="radio" type="radio" value="phone">
     <img class="control-image" src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" alt="">
     <div class="control-data">
       <div class="control-data-title">Mobile phone</div>
@@ -94,8 +104,8 @@
 </div>
 <div class="separator"></div>
 <div class="content">
-  <label class="control radio">
-    <input id="radio2" name="radio" type="radio">
+  <label class="control radio js-control-radio">
+    <input id="radio2" name="radio" type="radio" value="3phones" >
     <img class="control-image" src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588299118/Screeener/32.png" alt="">
     <div class="control-data">
       <div class="control-data-title">3 mobile phones</div>
@@ -103,7 +113,7 @@
     </div>
   </label>
 
-  <button class="button" id="create">Generate</button>
+  <button class="button" disabled="true" id="create">Generate</button>
 </div>
 
 
@@ -123,25 +133,48 @@
   }
 
   window.onload = function () {
-    const mockupOne = document.getElementById('mockup1')
-    const canvas = document.getElementById('canvas')
-    const ctx = canvas.getContext("2d")
     
-    ctx.drawImage(mockupOne, 0, 0)
-    const imageData = ctx.getImageData(0, 0, 1920, 1080)
 
-    const newBytes = encode(canvas, ctx, imageData)
+    const controlRadio = Array.from(document.querySelectorAll('.js-control-radio'))
+    const button = document.querySelector('button')
+    let checkedval
 
-    newBytes.then((imageData) => {
+
+    controlRadio.forEach((radio) => {
+
+      const image = radio.querySelector('img')
+      const input = radio.querySelector('input')
+
+      input.addEventListener('click', () => {
+        if (input.checked) {
+          checkedval = input.value
+          button.disabled = false
+          parent.postMessage({ pluginMessage: { type: 'select-mockup', checkedval}}, '*')
+        }
+      })
+    })
+
+
+    // Mockup1
+    const mockupOne = document.getElementById('mockup1')
+    const canvasM1 = document.getElementById('canvas')
+    const ctxM1 = canvasM1.getContext("2d")
+    
+    ctxM1.drawImage(mockupOne, 0, 0)
+    const imageDataM1 = ctxM1.getImageData(0, 0, 1920, 1080)
+
+    const newBytesM1 = encode(canvasM1, ctxM1, imageDataM1)
+
+    newBytesM1.then((imageData) => {
 
       const mockupData = {
         onePhone: imageData
       }
 
       document.getElementById('create').onclick = () => {
-        parent.postMessage({ pluginMessage: { type: 'generate-slides', mockupData}}, '*')
+        console.log(checkedval)
+        parent.postMessage({ pluginMessage: { type: 'generate-slides', mockupData, checkedval}}, '*')
       }
-
     })
   }
 
