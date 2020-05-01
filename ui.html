@@ -1,15 +1,61 @@
-<h2>Screeener for Figma</h2>
-<button id="create">Create</button>
-<button id="debug">debug</button>
+<style>
+
+  html {
+    width: 300px;
+    height: 600px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #989898;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" style="display: none;"  crossOrigin="" width="1920px" height="1080px" id="mockup1"  alt="">
+<canvas id="canvas" width="1920px" height="1080px" style="display: none;"></canvas>
+
+
+<h2>Select a mockup</h2>
+<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" style="display: none;"  crossOrigin="" width="300px" height="auto" alt="">
+<button id="create">Generate</button>
 
 <script>
 
-document.getElementById('create').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'generate-slides' } }, '*')
-}
+  async function encode(canvas, ctx, imageData) {
+    ctx.putImageData(imageData, 0, 0)
+    return await new Promise((resolve, reject) => {
+      canvas.toBlob(blob => {
+        const reader = new FileReader()
+        reader.onload = () => resolve(new Uint8Array(reader.result))
+        reader.onerror = () => reject(new Error('Could not read from blob'))
+        reader.readAsArrayBuffer(blob)
+      })
+    })
+  }
 
-document.getElementById('debug').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'debug' } }, '*')
-}
+  window.onload = function () {
+    const mockupOne = document.getElementById('mockup1')
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext("2d")
+    
+    ctx.drawImage(mockupOne, 0, 0)
+    const imageData = ctx.getImageData(0, 0, 1920, 1080)
+
+    const newBytes = encode(canvas, ctx, imageData)
+
+    newBytes.then((imageData) => {
+
+      const mockupData = {
+        onePhone: imageData
+      }
+
+      document.getElementById('create').onclick = () => {
+        parent.postMessage({ pluginMessage: { type: 'generate-slides', mockupData}}, '*')
+      }
+
+    })
+  }
 
 </script>
