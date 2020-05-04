@@ -40,7 +40,7 @@ figma.ui.onmessage = msg => {
         fills[0] = {
           type: 'IMAGE',
           imageHash: mockupImg,
-          scaleMode: 'FILL'
+          scaleMode: 'FIT'
         }
   
         figma.currentPage.appendChild(slide)
@@ -101,7 +101,7 @@ figma.ui.onmessage = msg => {
 
         element.forEach((frame, i) => {
           const mockup = figma.createRectangle()
-          mockup.x = 205 + (568 * i)
+          mockup.x = 205 + (567 * i)
           mockup.y = 206
           mockup.resize(375, 667)
 

@@ -88,10 +88,10 @@
 
 </style>
 
-<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588295916/Screeener/125.png" style="display: none;"  crossOrigin="" width="1920px" height="1080px" id="mockup1"  alt="">
-<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588311094/Screeener/3-phones.png" style="display: none;"  crossOrigin="" width="1920px" height="1080px" id="mockup2"  alt="">
+<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588633710/Screeener/2x/30.png" style="display: none;"  crossOrigin="" id="mockup1"  alt="">
+<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588633710/Screeener/2x/32.png" style="display: none;"  crossOrigin="" id="mockup2"  alt="">
 
-<canvas id="canvas" width="1920px" height="1080px" style="display: none;"></canvas>
+<canvas id="canvas" width="3840px" height="2160px" style="display: none;"></canvas>
 
 <div class="content">
   <div class="title">Select a mockup below</div>
@@ -166,8 +166,9 @@
           
           const canvas = document.getElementById('canvas')
           const ctx = canvas.getContext("2d")
+          ctx.imageSmoothingEnabled = false
           ctx.drawImage(mockupImage, 0, 0)
-          const imageData = ctx.getImageData(0, 0, 1920, 1080)
+          const imageData = ctx.getImageData(0, 0, 3840, 2160)
           const newBytes = encode(canvas, ctx, imageData)
 
           newBytes.then((imageData) => {
