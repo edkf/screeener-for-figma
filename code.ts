@@ -29,15 +29,24 @@ figma.ui.onmessage = msg => {
         // SLIDE PROPRERTIES
         const slide = figma.createFrame()
         slide.name = 'slide ' + index
-        slide.x = (1920 + 200) * index
-        slide.y = element.y + 1500
+        slide.x = selection[0].x + ((1920 + 200) * index)
+        slide.y = selection[0].y + 1500
         slide.resize(1920, 1080)
         const fills = clone(slide.fills)
         const mockupImg = figma.createImage(msg.mockup).hash
   
         nodes.push(slide)
-        
+
         fills[0] = {
+          type: 'SOLID',
+          color: {
+            r: 0,
+            g: 0,
+            b: 0,
+          }
+        }
+        
+        fills[1] = {
           type: 'IMAGE',
           imageHash: mockupImg,
           scaleMode: 'FIT'
@@ -49,8 +58,9 @@ figma.ui.onmessage = msg => {
         const mockup = figma.createRectangle()
         mockup.x = 713
         mockup.y = 101
+        mockup.name = 'mockup'
         mockup.resize(494, 878)
-        const mockupFills = clone(slide.fills)
+        const mockupFills = clone(mockup.fills)
         slide.appendChild(mockup)
   
         // EXPORTING SELECTION
@@ -89,11 +99,22 @@ figma.ui.onmessage = msg => {
         const slide = figma.createFrame()
         const fills = clone(slide.fills)
         slide.name = 'slide ' + index
-        slide.x = (1920 + 200) * index
-        slide.y = element[0].y + 1500
+        slide.x = selection[0].x + ((1920 + 200) * index)
+        slide.y = selection[0].y + 1500
         slide.resize(1920, 1080)
         const mockupImg = figma.createImage(msg.mockup).hash
+
         fills[0] = {
+          type: 'SOLID',
+          color: {
+            r: 0,
+            g: 0,
+            b: 0,
+          }
+        }
+        
+
+        fills[1] = {
           type: 'IMAGE',
           imageHash: mockupImg,
           scaleMode: 'FILL'
@@ -104,8 +125,9 @@ figma.ui.onmessage = msg => {
           mockup.x = 205 + (567 * i)
           mockup.y = 206
           mockup.resize(375, 667)
+          mockup.name = 'mockup ' + i
 
-          const mockupFills = clone(slide.fills)
+          const mockupFills = clone(mockup.fills)
           slide.appendChild(mockup)
     
           // EXPORTING SELECTION
