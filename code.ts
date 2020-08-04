@@ -24,13 +24,20 @@ figma.ui.onmessage = msg => {
     if (msg.checkedval === 'phone') {
       const selection = figma.currentPage.selection
       const nodes: SceneNode[] = [];
+
+      const clonedSelection = [...selection]
+
+      const sortedFrames = clonedSelection.sort((a, b) => {
+        if (a.y == b.y) return a.x - b.x;
+        return a.y - b.y;
+     })
   
-      selection.forEach((element, index) => {
+     sortedFrames.forEach((element, index) => {
         // SLIDE PROPRERTIES
         const slide = figma.createFrame()
         slide.name = 'slide ' + index
-        slide.x = selection[0].x + ((1920 + 200) * index)
-        slide.y = selection[0].y + 1500
+        slide.x = sortedFrames[0].x + ((1920 + 200) * index)
+        slide.y = sortedFrames[0].y + 1500
         slide.resize(1920, 1080)
         const fills = clone(slide.fills)
         const mockupImg = figma.createImage(msg.mockup).hash
@@ -93,14 +100,22 @@ figma.ui.onmessage = msg => {
       const selection = figma.currentPage.selection
       const nodes: SceneNode[] = []
 
-      const groupedFrames =  groupArr(selection, 3)
+      const clonedSelection = [...selection]
+
+      const sortedFrames = clonedSelection.sort((a, b) => {
+        if (a.y == b.y) return a.x - b.x;
+        return a.y - b.y;
+     })
+  
+
+      const groupedFrames =  groupArr(sortedFrames, 3)
 
       groupedFrames.forEach((element, index) => {
         const slide = figma.createFrame()
         const fills = clone(slide.fills)
         slide.name = 'slide ' + index
-        slide.x = selection[0].x + ((1920 + 200) * index)
-        slide.y = selection[0].y + 1500
+        slide.x = sortedFrames[0].x + ((1920 + 200) * index)
+        slide.y = sortedFrames[0].y + 1500
         slide.resize(1920, 1080)
         const mockupImg = figma.createImage(msg.mockup).hash
 
