@@ -1,13 +1,16 @@
 <style>
-
-  *, *:before, *:after {
-      -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-              box-sizing: border-box;
-    }
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
     color: #000;
     margin: 0;
     padding: 0;
@@ -23,24 +26,26 @@
   }
 
   .content {
-    width: 90%;
+    width: 48%;
     margin: 0 auto;
   }
 
   .title {
     font-size: 20px;
     margin-bottom: 20px;
+    letter-spacing: -0.06rem;
   }
 
   .control-image {
     width: 100%;
     height: auto;
+    background-color: #454545;
   }
 
   .control-data {
     margin: 15px 0 30px 0;
   }
-  
+
   input {
     width: 0;
     height: 0;
@@ -48,8 +53,8 @@
     opacity: 0;
   }
 
-  input:checked ~ .control-image{
-    box-shadow: 0px 0px 0px 3px #12A0FE;
+  input:checked ~ .control-image {
+    box-shadow: 0px 0px 0px 3px #12a0fe;
   }
 
   .control-data-title {
@@ -63,124 +68,221 @@
   .separator {
     width: 100%;
     height: 1px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
   }
 
   .button {
-    font-size: 20px;
+    font-size: 1rem;
+    font-weight: bold;
     width: 100%;
-    height: 60px;
-    background-color: #000;
+    height: 45px;
+    background-color: #12a0fe;
     color: #fff;
     text-align: center;
-    transition: .3s ease;
+    transition: 0.3s ease;
     cursor: pointer;
+    transition: background 200ms ease;
+    border: none;
   }
 
   .button:disabled {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
   }
 
   .button:focus {
     outline: none;
   }
 
+  body {
+    margin: 1rem 1rem;
+  }
+
+  .wrap {
+    display: flex;
+  }
 </style>
 
-<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588696507/Screeener/2x/mockup-black.png" style="display: none;"  crossOrigin="" id="mockup1"  alt="">
-<img src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588696507/Screeener/2x/3-mockups-black.png" style="display: none;"  crossOrigin="" id="mockup2"  alt="">
+<img
+  src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/iphone_klqamp.png"
+  style="display: none;"
+  crossorigin=""
+  id="mockup1"
+  alt=""
+/>
+<img
+  src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/3iphone_lenqv8.png"
+  style="display: none;"
+  crossorigin=""
+  id="mockup2"
+  alt=""
+/>
 
-<canvas id="canvas" width="3840px" height="2160px" style="display: none;"></canvas>
+<img
+  src="https://res.cloudinary.com/deeitm141/image/upload/v1597005600/android_oiypsa.png"
+  style="display: none;"
+  crossorigin=""
+  id="mockup3"
+  alt=""
+/>
+<img
+  src="https://res.cloudinary.com/deeitm141/image/upload/v1597005600/3android_k9064j.png"
+  style="display: none;"
+  crossorigin=""
+  id="mockup4"
+  alt=""
+/>
 
-<div class="content">
-  <div class="title">Select a mockup below</div>
-  <label class="control radio js-control-radio">
-    <input id="radio1" name="radio" type="radio" value="phone">
-    <img class="control-image" src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588697994/Screeener/thumb/thumb-01.png" alt="">
-    <div class="control-data">
-      <div class="control-data-title">Mobile phone</div>
-      <div class="control-data-description">375x667</div>
-    </div>
-  </label>
+<canvas
+  id="canvas"
+  width="3840px"
+  height="2160px"
+  style="display: none;"
+></canvas>
+
+<div class="title">Select a mockup below</div>
+<div class="wrap">
+  <div class="content">
+    <label class="control radio js-control-radio">
+      <input id="radio1" name="radio" type="radio" value="phone" />
+      <img
+        class="control-image"
+        src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/iphone_klqamp.png"
+        alt=""
+      />
+      <div class="control-data">
+        <div class="control-data-title">iPhone Zoom</div>
+        <div class="control-data-description">375x667</div>
+      </div>
+    </label>
+  </div>
+  <div class="content">
+    <label class="control radio js-control-radio">
+      <input id="radio2" name="radio" type="radio" value="3phones" />
+      <img
+        class="control-image"
+        src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/3iphone_lenqv8.png"
+        alt=""
+      />
+      <div class="control-data">
+        <div class="control-data-title">iPhone (3)</div>
+        <div class="control-data-description">375x667</div>
+      </div>
+    </label>
+  </div>
 </div>
+
+<div class="wrap">
+  <div class="content">
+    <label class="control radio js-control-radio">
+      <input id="radio3" name="radio" type="radio" value="android" />
+      <img
+        class="control-image"
+        src="https://res.cloudinary.com/deeitm141/image/upload/v1597005600/android_oiypsa.png"
+        alt=""
+      />
+      <div class="control-data">
+        <div class="control-data-title">Android Zoom</div>
+        <div class="control-data-description">360x780</div>
+      </div>
+    </label>
+  </div>
+  <div class="content">
+    <label class="control radio js-control-radio">
+      <input id="radio4" name="radio" type="radio" value="3android" />
+      <img
+        class="control-image"
+        src="https://res.cloudinary.com/deeitm141/image/upload/v1597005600/3android_k9064j.png"
+        alt=""
+      />
+      <div class="control-data">
+        <div class="control-data-title">Android (3)</div>
+        <div class="control-data-description">360x780</div>
+      </div>
+    </label>
+  </div>
+</div>
+
+<button class="button" disabled="true" id="create">Generate</button>
+
 <div class="separator"></div>
-<div class="content">
-  <label class="control radio js-control-radio">
-    <input id="radio2" name="radio" type="radio" value="3phones" >
-    <img class="control-image" src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588697994/Screeener/thumb/thumb-02.png" alt="">
-    <div class="control-data">
-      <div class="control-data-title">3 mobile phones</div>
-      <div class="control-data-description">375x667</div>
-    </div>
-  </label>
-
-  <button class="button" disabled="true" id="create">Generate</button>
-</div>
-
-
 
 <script>
-
-  
   async function encode(canvas, ctx, imageData) {
-    ctx.putImageData(imageData, 0, 0)
+    ctx.putImageData(imageData, 0, 0);
     return await new Promise((resolve, reject) => {
-      canvas.toBlob(blob => {
-        const reader = new FileReader()
-        reader.onload = () => resolve(new Uint8Array(reader.result))
-        reader.onerror = () => reject(new Error('Could not read from blob'))
-        reader.readAsArrayBuffer(blob)
-      })
-    })
+      canvas.toBlob((blob) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(new Uint8Array(reader.result));
+        reader.onerror = () => reject(new Error("Could not read from blob"));
+        reader.readAsArrayBuffer(blob);
+      });
+    });
   }
-  
+
   window.onload = function () {
-
-    const controlRadio = Array.from(document.querySelectorAll('.js-control-radio'))
-    const button = document.querySelector('button')
-    let checkedval
-
+    const controlRadio = Array.from(
+      document.querySelectorAll(".js-control-radio")
+    );
+    const button = document.querySelector("button");
+    let checkedval;
 
     controlRadio.forEach((radio) => {
+      const image = radio.querySelector("img");
+      const input = radio.querySelector("input");
 
-      const image = radio.querySelector('img')
-      const input = radio.querySelector('input')
-
-      input.addEventListener('click', () => {
+      input.addEventListener("click", () => {
         if (input.checked) {
-          checkedval = input.value
-          button.disabled = false
+          checkedval = input.value;
+          button.disabled = false;
 
-          let mockupImage
+          let mockupImage;
 
-          if (input.value === 'phone') {
-            mockupImage = document.getElementById('mockup1')
-            console.log('phone')
+          if (input.value === "phone") {
+            mockupImage = document.getElementById("mockup1");
+            console.log("phone");
           }
-          
-          if (input.value === '3phones') {
-            console.log('3phone')
-            mockupImage = document.getElementById('mockup2')
+
+          if (input.value === "3phones") {
+            console.log("3phone");
+            mockupImage = document.getElementById("mockup2");
           }
-          
-          const canvas = document.getElementById('canvas')
-          const ctx = canvas.getContext("2d")
-          ctx.imageSmoothingEnabled = false
-          ctx.drawImage(mockupImage, 0, 0)
-          const imageData = ctx.getImageData(0, 0, 3840, 2160)
-          const newBytes = encode(canvas, ctx, imageData)
+
+          if (input.value === "android") {
+            console.log("3phone");
+            mockupImage = document.getElementById("mockup3");
+          }
+
+          if (input.value === "3android") {
+            console.log("3phone");
+            mockupImage = document.getElementById("mockup4");
+          }
+
+          const canvas = document.getElementById("canvas");
+          const ctx = canvas.getContext("2d");
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(mockupImage, 0, 0);
+          const imageData = ctx.getImageData(0, 0, 3840, 2160);
+          const newBytes = encode(canvas, ctx, imageData);
 
           newBytes.then((imageData) => {
-            const mockup = imageData
-            document.getElementById('create').onclick = () => {
-              parent.postMessage({ pluginMessage: { type: 'generate-slides', mockup, checkedval}}, '*')
-            }
-          })
+            const mockup = imageData;
+            document.getElementById("create").onclick = () => {
+              parent.postMessage(
+                {
+                  pluginMessage: {
+                    type: "generate-slides",
+                    mockup,
+                    checkedval,
+                  },
+                },
+                "*"
+              );
+            };
+          });
         }
-      })
-    })
-
-  }
-
+      });
+    });
+  };
 </script>
