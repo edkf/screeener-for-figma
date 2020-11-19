@@ -1,5 +1,5 @@
 figma.showUI(__html__);
-figma.ui.resize(400, 530);
+figma.ui.resize(400, 700);
 // ------------------
 // Helpers
 // ------------------
@@ -179,10 +179,10 @@ const mockupData = [
         mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1597003927/android-zoom_mgork8.png",
         images: [
             {
-                x: 723,
-                y: 20,
+                x: 718,
+                y: 40,
                 width: 478,
-                height: 1037,
+                height: 1010,
             },
         ],
     },
@@ -193,22 +193,63 @@ const mockupData = [
         mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1597003927/android-triple_a7gk1u.png",
         images: [
             {
-                x: 225,
-                y: 150,
-                width: 361,
-                height: 782,
+                x: 269,
+                y: 168,
+                width: 360,
+                height: 760,
             },
             {
-                x: 781,
-                y: 150,
-                width: 361,
-                height: 782,
+                x: 778,
+                y: 168,
+                width: 360,
+                height: 760,
             },
             {
-                x: 1337,
-                y: 150,
-                width: 361,
-                height: 782,
+                x: 1288,
+                y: 168,
+                width: 360,
+                height: 760,
+            },
+        ],
+    },
+    //Pixel
+    {
+        id: "pixel",
+        name: "Pixel",
+        category: "android",
+        mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png",
+        images: [
+            {
+                x: 693,
+                y: 64,
+                width: 535,
+                height: 952,
+            },
+        ],
+    },
+    {
+        id: "3pixel",
+        name: "Three Pixel",
+        category: "android",
+        mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png",
+        images: [
+            {
+                x: 228,
+                y: 216.32,
+                width: 363.8,
+                height: 647.36,
+            },
+            {
+                x: 778,
+                y: 216.32,
+                width: 363.8,
+                height: 647.36,
+            },
+            {
+                x: 1328.2,
+                y: 216.32,
+                width: 363.8,
+                height: 647.36,
             },
         ],
     },

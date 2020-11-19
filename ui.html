@@ -133,6 +133,21 @@
   alt=""
 />
 
+<img
+  src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png"
+  style="display: none;"
+  crossorigin=""
+  id="mockup5"
+  alt=""
+/>
+<img
+  src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png"
+  style="display: none;"
+  crossorigin=""
+  id="mockup6"
+  alt=""
+/>
+
 <canvas
   id="canvas"
   width="3840px"
@@ -203,6 +218,37 @@
   </div>
 </div>
 
+<div class="wrap">
+  <div class="content">
+    <label class="control radio js-control-radio">
+      <input id="radio3" name="radio" type="radio" value="pixel" />
+      <img
+        class="control-image"
+        src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png"
+        alt=""
+      />
+      <div class="control-data">
+        <div class="control-data-title">Pixel Zoom</div>
+        <div class="control-data-description">360x640</div>
+      </div>
+    </label>
+  </div>
+  <div class="content">
+    <label class="control radio js-control-radio">
+      <input id="radio4" name="radio" type="radio" value="3pixel" />
+      <img
+        class="control-image"
+        src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png"
+        alt=""
+      />
+      <div class="control-data">
+        <div class="control-data-title">Pixel (3)</div>
+        <div class="control-data-description">360x640</div>
+      </div>
+    </label>
+  </div>
+</div>
+
 <button class="button" disabled="true" id="create">Generate</button>
 
 <div class="separator"></div>
@@ -256,6 +302,16 @@
           if (input.value === "3android") {
             console.log("3phone");
             mockupImage = document.getElementById("mockup4");
+          }
+
+          if (input.value === "pixel") {
+            console.log("pixel");
+            mockupImage = document.getElementById("mockup5");
+          }
+
+          if (input.value === "3pixel") {
+            console.log("3pixel");
+            mockupImage = document.getElementById("mockup6");
           }
 
           const canvas = document.getElementById("canvas");
