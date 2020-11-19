@@ -72,6 +72,7 @@ figma.ui.onmessage = (msg) => {
     nodes.push(slide);
   });
 
+  figma.currentPage.selection = nodes;
   figma.viewport.scrollAndZoomIntoView(nodes);
   figma.closePlugin();
 };
