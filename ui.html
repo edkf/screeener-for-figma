@@ -32,7 +32,7 @@
 
   .title {
     font-size: 20px;
-    margin-bottom: 20px;
+    color: #454545;
     letter-spacing: -0.06rem;
   }
 
@@ -101,18 +101,42 @@
   .wrap {
     display: flex;
   }
+
+  .tabs {
+    padding: 0 0 1rem 0;
+  }
+
+  .tabs a {
+    color: #b3b3b3;
+    font-weight: bold;
+    margin-right: 0.7rem;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  .tabs a.active {
+    color: #000;
+  }
+
+  .tabContainer {
+    display: none;
+  }
+
+  .tabContainer.active {
+    display: block;
+  }
 </style>
 
 <img
   src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/iphone_klqamp.png"
-  style="display: none;"
+  style="display: none"
   crossorigin=""
   id="mockup1"
   alt=""
 />
 <img
   src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/3iphone_lenqv8.png"
-  style="display: none;"
+  style="display: none"
   crossorigin=""
   id="mockup2"
   alt=""
@@ -120,14 +144,14 @@
 
 <img
   src="https://res.cloudinary.com/deeitm141/image/upload/v1597670635/160_ycvhjt.png"
-  style="display: none;"
+  style="display: none"
   crossorigin=""
   id="mockup3"
   alt=""
 />
 <img
   src="https://res.cloudinary.com/deeitm141/image/upload/v1597670635/156_lcxgkd.png"
-  style="display: none;"
+  style="display: none"
   crossorigin=""
   id="mockup4"
   alt=""
@@ -135,16 +159,31 @@
 
 <img
   src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png"
-  style="display: none;"
+  style="display: none"
   crossorigin=""
   id="mockup5"
   alt=""
 />
 <img
   src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png"
-  style="display: none;"
+  style="display: none"
   crossorigin=""
   id="mockup6"
+  alt=""
+/>
+
+<img
+  src="https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex_qniqkb.png"
+  style="display: none"
+  crossorigin=""
+  id="mockup7"
+  alt=""
+/>
+<img
+  src="https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex3_gxmfjr.png"
+  style="display: none"
+  crossorigin=""
+  id="mockup8"
   alt=""
 />
 
@@ -152,100 +191,139 @@
   id="canvas"
   width="3840px"
   height="2160px"
-  style="display: none;"
+  style="display: none"
 ></canvas>
 
-<div class="title">Select a mockup below</div>
-<div class="wrap">
-  <div class="content">
-    <label class="control radio js-control-radio">
-      <input id="radio1" name="radio" type="radio" value="phone" />
-      <img
-        class="control-image"
-        src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/iphone_klqamp.png"
-        alt=""
-      />
-      <div class="control-data">
-        <div class="control-data-title">iPhone Zoom</div>
-        <div class="control-data-description">375x667</div>
-      </div>
-    </label>
+<div class="tabs">
+  <a href="#iphone" class="active">iPhone</a>
+  <a href="#android">Android</a>
+</div>
+
+<div id="iphone" class="tabContainer active">
+  <div class="wrap">
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio1" name="radio" type="radio" value="iphonex" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/deeitm141/image/upload/c_scale,w_486/v1606257950/iphonex_qniqkb.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">iPhone X Zoom</div>
+          <div class="control-data-description">450x972</div>
+        </div>
+      </label>
+    </div>
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio2" name="radio" type="radio" value="3iphonex" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/deeitm141/image/upload/c_scale,w_486/v1606257950/iphonex3_gxmfjr.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">iPhone X (3)</div>
+          <div class="control-data-description">375x812</div>
+        </div>
+      </label>
+    </div>
   </div>
-  <div class="content">
-    <label class="control radio js-control-radio">
-      <input id="radio2" name="radio" type="radio" value="3phones" />
-      <img
-        class="control-image"
-        src="https://res.cloudinary.com/deeitm141/image/upload/v1597006424/3iphone_lenqv8.png"
-        alt=""
-      />
-      <div class="control-data">
-        <div class="control-data-title">iPhone (3)</div>
-        <div class="control-data-description">375x667</div>
-      </div>
-    </label>
+
+  <div class="wrap">
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio1" name="radio" type="radio" value="phone" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/deeitm141/image/upload/c_scale,w_486/v1597006424/iphone_klqamp.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">iPhone 8 Zoom</div>
+          <div class="control-data-description">375x667</div>
+        </div>
+      </label>
+    </div>
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio2" name="radio" type="radio" value="3phones" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/deeitm141/image/upload/c_scale,w_486/v1597006424/3iphone_lenqv8.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">iPhone 8 (3)</div>
+          <div class="control-data-description">375x667</div>
+        </div>
+      </label>
+    </div>
   </div>
 </div>
 
-<div class="wrap">
-  <div class="content">
-    <label class="control radio js-control-radio">
-      <input id="radio3" name="radio" type="radio" value="android" />
-      <img
-        class="control-image"
-        src="https://res.cloudinary.com/deeitm141/image/upload/v1597670635/160_ycvhjt.png"
-        alt=""
-      />
-      <div class="control-data">
-        <div class="control-data-title">Android Zoom</div>
-        <div class="control-data-description">360x760</div>
-      </div>
-    </label>
+<div id="android" class="tabContainer">
+  <div class="wrap">
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio3" name="radio" type="radio" value="android" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/deeitm141/image/upload/v1597670635/160_ycvhjt.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">Android Zoom</div>
+          <div class="control-data-description">360x760</div>
+        </div>
+      </label>
+    </div>
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio4" name="radio" type="radio" value="3android" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/deeitm141/image/upload/v1597670635/156_lcxgkd.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">Android (3)</div>
+          <div class="control-data-description">360x760</div>
+        </div>
+      </label>
+    </div>
   </div>
-  <div class="content">
-    <label class="control radio js-control-radio">
-      <input id="radio4" name="radio" type="radio" value="3android" />
-      <img
-        class="control-image"
-        src="https://res.cloudinary.com/deeitm141/image/upload/v1597670635/156_lcxgkd.png"
-        alt=""
-      />
-      <div class="control-data">
-        <div class="control-data-title">Android (3)</div>
-        <div class="control-data-description">360x760</div>
-      </div>
-    </label>
-  </div>
-</div>
 
-<div class="wrap">
-  <div class="content">
-    <label class="control radio js-control-radio">
-      <input id="radio3" name="radio" type="radio" value="pixel" />
-      <img
-        class="control-image"
-        src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png"
-        alt=""
-      />
-      <div class="control-data">
-        <div class="control-data-title">Pixel Zoom</div>
-        <div class="control-data-description">360x640</div>
-      </div>
-    </label>
-  </div>
-  <div class="content">
-    <label class="control radio js-control-radio">
-      <input id="radio4" name="radio" type="radio" value="3pixel" />
-      <img
-        class="control-image"
-        src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png"
-        alt=""
-      />
-      <div class="control-data">
-        <div class="control-data-title">Pixel (3)</div>
-        <div class="control-data-description">360x640</div>
-      </div>
-    </label>
+  <div class="wrap">
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio3" name="radio" type="radio" value="pixel" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">Pixel Zoom</div>
+          <div class="control-data-description">360x640</div>
+        </div>
+      </label>
+    </div>
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio4" name="radio" type="radio" value="3pixel" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">Pixel (3)</div>
+          <div class="control-data-description">360x640</div>
+        </div>
+      </label>
+    </div>
   </div>
 </div>
 
@@ -254,6 +332,29 @@
 <div class="separator"></div>
 
 <script>
+  //Tab system
+  const tabs = document.querySelectorAll(".tabContainer");
+  const tabLink = document.querySelectorAll(".tabs a");
+
+  tabLink.forEach((t) => {
+    t.addEventListener("click", (event) => {
+      let activePaneId = t.getAttribute("href");
+      let container = document.querySelector(activePaneId);
+
+      tabs.forEach((c) => {
+        c.classList.remove("active");
+      });
+
+      tabLink.forEach((tl) => {
+        tl.classList.remove("active");
+      });
+
+      container.classList.add("active");
+      event.target.classList.add("active");
+      event.preventDefault();
+    });
+  });
+
   async function encode(canvas, ctx, imageData) {
     ctx.putImageData(imageData, 0, 0);
     return await new Promise((resolve, reject) => {
@@ -312,6 +413,16 @@
           if (input.value === "3pixel") {
             console.log("3pixel");
             mockupImage = document.getElementById("mockup6");
+          }
+
+          if (input.value === "iphonex") {
+            console.log("iphonex");
+            mockupImage = document.getElementById("mockup7");
+          }
+
+          if (input.value === "3iphonex") {
+            console.log("3iphonex");
+            mockupImage = document.getElementById("mockup8");
           }
 
           const canvas = document.getElementById("canvas");

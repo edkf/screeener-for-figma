@@ -61,6 +61,7 @@ figma.ui.onmessage = (msg) => {
         slide.appendChild(mockup);
         nodes.push(slide);
     });
+    figma.currentPage.selection = nodes;
     figma.viewport.scrollAndZoomIntoView(nodes);
     figma.closePlugin();
 };
@@ -250,6 +251,47 @@ const mockupData = [
                 y: 216.32,
                 width: 363.8,
                 height: 647.36,
+            },
+        ],
+    },
+    //Iphonex
+    {
+        id: "iphonex",
+        name: "iPhoneX",
+        category: "iphone",
+        mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex_qniqkb.png",
+        images: [
+            {
+                x: 714,
+                y: 42,
+                width: 450,
+                height: 972,
+            },
+        ],
+    },
+    {
+        id: "3iphonex",
+        name: "3 iPhoneX",
+        category: "iphone",
+        mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex3_gxmfjr.png",
+        images: [
+            {
+                x: 248,
+                y: 134,
+                width: 375,
+                height: 812,
+            },
+            {
+                x: 773,
+                y: 134,
+                width: 375,
+                height: 812,
+            },
+            {
+                x: 1298,
+                y: 134,
+                width: 375,
+                height: 812,
             },
         ],
     },
