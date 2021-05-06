@@ -8,6 +8,13 @@
   }
 
   body {
+    -webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol";
@@ -16,17 +23,10 @@
     padding: 0;
     margin-top: 20px;
     font-size: 14px;
-    -webkit-text-rendering: optimizeLegibility;
-    -moz-text-rendering: optimizeLegibility;
-    -ms-text-rendering: optimizeLegibility;
-    -o-text-rendering: optimizeLegibility;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   .content {
-    width: 48%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -43,7 +43,7 @@
   }
 
   .control-data {
-    margin: 15px 0 30px 0;
+    margin: 15px 0 20px 0;
   }
 
   input[type=radio] {
@@ -95,15 +95,17 @@
   }
 
   body {
-    margin: 1rem 1rem;
+    margin: 18px;
   }
 
   .wrap {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 18px;
   }
 
   .tabs {
-    padding: 0 0 1rem 0;
+    padding: 0 0 18px 0;
   }
 
   .tabs a {
@@ -128,7 +130,7 @@
 
   .checkbox {
     display: flex;
-    padding: 10px 0;
+    padding: 10px 0 20px 0; 
   }
 </style>
 
@@ -192,6 +194,22 @@
   alt=""
 />
 
+<img
+  src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x-2.png"
+  style="display: none"
+  crossorigin=""
+  id="mockup9"
+  alt=""
+/>
+
+<img
+  src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x.png"
+  style="display: none"
+  crossorigin=""
+  id="mockup10"
+  alt=""
+/>
+
 <canvas
   id="canvas"
   width="3840px"
@@ -217,6 +235,37 @@
         <div class="control-data">
           <div class="control-data-title">iPhone X Zoom</div>
           <div class="control-data-description">450x972</div>
+        </div>
+      </label>
+    </div>
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio1" name="radio" type="radio" value="1iphonex" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">iPhone X</div>
+          <div class="control-data-description">375x812</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="content">
+      <label class="control radio js-control-radio">
+        <input id="radio2" name="radio" type="radio" value="2iphonex" />
+        <img
+          class="control-image"
+          src="https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x-2.png"
+          alt=""
+        />
+        <div class="control-data">
+          <div class="control-data-title">iPhone X (2)</div>
+          <div class="control-data-description">375x812</div>
         </div>
       </label>
     </div>
@@ -444,6 +493,17 @@
             // console.log("3iphonex");
             mockupImage = document.getElementById("mockup8");
           }
+
+          if (input.value === "1iphonex") {
+            // console.log("3iphonex");
+            mockupImage = document.getElementById("mockup10");
+          }
+
+          if (input.value === "2iphonex") {
+            // console.log("3iphonex");
+            mockupImage = document.getElementById("mockup9");
+          }
+
 
           const canvas = document.getElementById("canvas");
           const ctx = canvas.getContext("2d");
