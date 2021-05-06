@@ -157,177 +157,200 @@ function createScreenImage({ x, y, width, height, frame }) {
 // -------------------------------
 const mockupData = [
   {
-    id: "phone",
-    name: "iPhone Zoom",
-    category: "iphone",
-    mockup:
-      "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588696507/Screeener/2x/mockup-black.png",
-    images: [
-      {
-        x: 713,
-        y: 101,
-        width: 494,
-        height: 878,
-      },
-    ],
+      id: "phone",
+      name: "iPhone Zoom",
+      category: "iphone",
+      mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588696507/Screeener/2x/mockup-black.png",
+      images: [
+          {
+              x: 713,
+              y: 101,
+              width: 494,
+              height: 878,
+          },
+      ],
   },
   {
-    id: "3phones",
-    name: "Three iPhones",
-    category: "iphone",
-    mockup:
-      "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588696507/Screeener/2x/3-mockups-black.png",
-    images: [
-      {
-        x: 205,
-        y: 206,
-        width: 375,
-        height: 667,
-      },
-      {
-        x: 772,
-        y: 206,
-        width: 375,
-        height: 667,
-      },
-      {
-        x: 1339,
-        y: 206,
-        width: 375,
-        height: 667,
-      },
-    ],
+      id: "1iphonex",
+      name: "iPhone X",
+      category: "iphone",
+      mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x.png",
+      images: [
+          {
+              x: 772.5,
+              y: 134,
+              width: 375,
+              height: 812,
+          },
+      ],
   },
-
+  {
+      id: "2iphonex",
+      name: "Two iPhones",
+      category: "iphone",
+      mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x-2.png",
+      images: [
+          {
+              x: 509.47,
+              y: 134,
+              width: 375,
+              height: 812,
+          },
+          {
+              x: 134.54,
+              y: 134,
+              width: 375,
+              height: 812,
+          },
+      ],
+  },
+  {
+      id: "3phones",
+      name: "Three iPhones",
+      category: "iphone",
+      mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1588696507/Screeener/2x/3-mockups-black.png",
+      images: [
+          {
+              x: 205,
+              y: 206,
+              width: 375,
+              height: 667,
+          },
+          {
+              x: 772,
+              y: 206,
+              width: 375,
+              height: 667,
+          },
+          {
+              x: 1339,
+              y: 206,
+              width: 375,
+              height: 667,
+          },
+      ],
+  },
   //Android
   {
-    id: "android",
-    name: "Android Zoom",
-    category: "android",
-    mockup:
-      "https://res.cloudinary.com/deeitm141/image/upload/v1597003927/android-zoom_mgork8.png",
-    images: [
-      {
-        x: 718,
-        y: 40,
-        width: 478,
-        height: 1010,
-      },
-    ],
+      id: "android",
+      name: "Android Zoom",
+      category: "android",
+      mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1597003927/android-zoom_mgork8.png",
+      images: [
+          {
+              x: 718,
+              y: 40,
+              width: 478,
+              height: 1010,
+          },
+      ],
   },
   {
-    id: "3android",
-    name: "Three Android",
-    category: "android",
-    mockup:
-      "https://res.cloudinary.com/deeitm141/image/upload/v1597003927/android-triple_a7gk1u.png",
-    images: [
-      {
-        x: 269,
-        y: 168,
-        width: 360,
-        height: 760,
-      },
-      {
-        x: 778,
-        y: 168,
-        width: 360,
-        height: 760,
-      },
-      {
-        x: 1288,
-        y: 168,
-        width: 360,
-        height: 760,
-      },
-    ],
+      id: "3android",
+      name: "Three Android",
+      category: "android",
+      mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1597003927/android-triple_a7gk1u.png",
+      images: [
+          {
+              x: 269,
+              y: 168,
+              width: 360,
+              height: 760,
+          },
+          {
+              x: 778,
+              y: 168,
+              width: 360,
+              height: 760,
+          },
+          {
+              x: 1288,
+              y: 168,
+              width: 360,
+              height: 760,
+          },
+      ],
   },
-
   //Pixel
   {
-    id: "pixel",
-    name: "Pixel",
-    category: "android",
-    mockup:
-      "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png",
-    images: [
-      {
-        x: 693,
-        y: 64,
-        width: 535,
-        height: 952,
-      },
-    ],
+      id: "pixel",
+      name: "Pixel",
+      category: "android",
+      mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-01-1.png",
+      images: [
+          {
+              x: 693,
+              y: 64,
+              width: 535,
+              height: 952,
+          },
+      ],
   },
   {
-    id: "3pixel",
-    name: "Three Pixel",
-    category: "android",
-    mockup:
-      "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png",
-    images: [
-      {
-        x: 228,
-        y: 216.32,
-        width: 363.8,
-        height: 647.36,
-      },
-      {
-        x: 778,
-        y: 216.32,
-        width: 363.8,
-        height: 647.36,
-      },
-      {
-        x: 1328.2,
-        y: 216.32,
-        width: 363.8,
-        height: 647.36,
-      },
-    ],
+      id: "3pixel",
+      name: "Three Pixel",
+      category: "android",
+      mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1601492721/Screeener/2x/pixel-03.png",
+      images: [
+          {
+              x: 228,
+              y: 216.32,
+              width: 363.8,
+              height: 647.36,
+          },
+          {
+              x: 778,
+              y: 216.32,
+              width: 363.8,
+              height: 647.36,
+          },
+          {
+              x: 1328.2,
+              y: 216.32,
+              width: 363.8,
+              height: 647.36,
+          },
+      ],
   },
-
   //Iphonex
   {
-    id: "iphonex",
-    name: "iPhoneX",
-    category: "iphone",
-    mockup:
-      "https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex_qniqkb.png",
-    images: [
-      {
-        x: 714,
-        y: 42,
-        width: 450,
-        height: 972,
-      },
-    ],
+      id: "iphonex",
+      name: "iPhoneX",
+      category: "iphone",
+      mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex_qniqkb.png",
+      images: [
+          {
+              x: 714,
+              y: 42,
+              width: 450,
+              height: 972,
+          },
+      ],
   },
   {
-    id: "3iphonex",
-    name: "3 iPhoneX",
-    category: "iphone",
-    mockup:
-      "https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex3_gxmfjr.png",
-    images: [
-      {
-        x: 248,
-        y: 134,
-        width: 375,
-        height: 812,
-      },
-      {
-        x: 773,
-        y: 134,
-        width: 375,
-        height: 812,
-      },
-      {
-        x: 1298,
-        y: 134,
-        width: 375,
-        height: 812,
-      },
-    ],
+      id: "3iphonex",
+      name: "3 iPhoneX",
+      category: "iphone",
+      mockup: "https://res.cloudinary.com/deeitm141/image/upload/v1606257950/iphonex3_gxmfjr.png",
+      images: [
+          {
+              x: 248,
+              y: 134,
+              width: 375,
+              height: 812,
+          },
+          {
+              x: 773,
+              y: 134,
+              width: 375,
+              height: 812,
+          },
+          {
+              x: 1298,
+              y: 134,
+              width: 375,
+              height: 812,
+          },
+      ],
   },
 ];

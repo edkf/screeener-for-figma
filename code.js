@@ -149,6 +149,40 @@ const mockupData = [
         ],
     },
     {
+        id: "1iphonex",
+        name: "iPhone X",
+        category: "iphone",
+        mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x.png",
+        images: [
+            {
+                x: 772.5,
+                y: 134,
+                width: 375,
+                height: 812,
+            },
+        ],
+    },
+    {
+        id: "2iphonex",
+        name: "Two iPhones",
+        category: "iphone",
+        mockup: "https://res.cloudinary.com/dyw3e3f2c/image/upload/v1620342602/Screeener/ixone-x-2.png",
+        images: [
+            {
+                x: 509.47,
+                y: 134,
+                width: 375,
+                height: 812,
+            },
+            {
+                x: 134.54,
+                y: 134,
+                width: 375,
+                height: 812,
+            },
+        ],
+    },
+    {
         id: "3phones",
         name: "Three iPhones",
         category: "iphone",
