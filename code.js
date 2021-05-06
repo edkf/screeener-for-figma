@@ -1,5 +1,5 @@
 figma.showUI(__html__);
-figma.ui.resize(400, 700);
+figma.ui.resize(400, 600);
 // ------------------
 // Helpers
 // ------------------
@@ -30,11 +30,12 @@ figma.ui.onmessage = (msg) => {
     });
     // GET MOCKUP DATA MATCH WITH ID
     // TODO: generate front end using the json mockup and backend get information from front-end
-    console.log(msg.checkedval);
-    console.log(mockupData);
+    // console.log(msg.checkedval);
+    // console.log(msg.checkedval);
     const { images } = mockupData.find((m) => m.id == msg.checkedval);
     console.log(images);
     let ngroup = images.length;
+    const showFrames = msg.showFrames;
     // GROUP
     const groupedFrames = groupArr(sortedFrames, ngroup);
     groupedFrames.forEach((screens, index) => {
@@ -44,7 +45,7 @@ figma.ui.onmessage = (msg) => {
         const mockupImg = figma.createImage(msg.mockup).hash;
         const slide = createSlide(x, y);
         slide.name = "slide " + index;
-        const mockup = createMockup(mockupImg);
+        const mockup = createMockup(mockupImg, showFrames);
         // GENERATE IMAGES
         screens.forEach((frame, i) => {
             let { x, y, width, height } = images[i];
@@ -85,10 +86,11 @@ function createSlide(x, y) {
     slide.resize(1920, 1080);
     return slide;
 }
-function createMockup(mockupImg) {
+function createMockup(mockupImg, showFrames) {
     const mockup = figma.createRectangle();
     mockup.x = 0;
     mockup.y = 0;
+    mockup.opacity = showFrames ? 1 : 0;
     mockup.name = "mockup";
     mockup.resize(1920, 1080);
     mockup.fills = [

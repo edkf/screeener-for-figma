@@ -46,7 +46,7 @@
     margin: 15px 0 30px 0;
   }
 
-  input {
+  input[type=radio] {
     width: 0;
     height: 0;
     overflow: hidden;
@@ -124,6 +124,11 @@
 
   .tabContainer.active {
     display: block;
+  }
+
+  .checkbox {
+    display: flex;
+    padding: 10px 0;
   }
 </style>
 
@@ -327,6 +332,15 @@
   </div>
 </div>
 
+<div class="checkbox-container">
+  <label class="checkbox" for="frames">
+    <input class="checkbox" type="checkbox" name="frames" checked id="frames">
+    <div>
+      Show frames
+    </div>
+  </label>
+</div>
+
 <button class="button" disabled="true" id="create">Generate</button>
 
 <div class="separator"></div>
@@ -377,6 +391,12 @@
     controlRadio.forEach((radio) => {
       const image = radio.querySelector("img");
       const input = radio.querySelector("input");
+      const checkbox = document.querySelector('#frames')
+
+      checkbox.addEventListener('click', () => {
+        console.log(checkbox.checked)
+      })
+
 
       input.addEventListener("click", () => {
         if (input.checked) {
@@ -387,41 +407,41 @@
 
           if (input.value === "phone") {
             mockupImage = document.getElementById("mockup1");
-            console.log("phone");
+            // console.log("phone");
           }
 
           if (input.value === "3phones") {
-            console.log("3phone");
+            // console.log("3phone");
             mockupImage = document.getElementById("mockup2");
           }
 
           if (input.value === "android") {
-            console.log("3phone");
+            // console.log("3phone");
             mockupImage = document.getElementById("mockup3");
           }
 
           if (input.value === "3android") {
-            console.log("3phone");
+            // console.log("3phone");
             mockupImage = document.getElementById("mockup4");
           }
 
           if (input.value === "pixel") {
-            console.log("pixel");
+            // console.log("pixel");
             mockupImage = document.getElementById("mockup5");
           }
 
           if (input.value === "3pixel") {
-            console.log("3pixel");
+            // console.log("3pixel");
             mockupImage = document.getElementById("mockup6");
           }
 
           if (input.value === "iphonex") {
-            console.log("iphonex");
+            // console.log("iphonex");
             mockupImage = document.getElementById("mockup7");
           }
 
           if (input.value === "3iphonex") {
-            console.log("3iphonex");
+            // console.log("3iphonex");
             mockupImage = document.getElementById("mockup8");
           }
 
@@ -442,6 +462,7 @@
                     type: "generate-slides",
                     mockup,
                     checkedval,
+                    showFrames: checkbox.checked
                   },
                 },
                 "*"
