@@ -175,7 +175,7 @@ const mockupData = [
                 height: 812,
             },
             {
-                x: 134.54,
+                x: 1033.51,
                 y: 134,
                 width: 375,
                 height: 812,
